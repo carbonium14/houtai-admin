@@ -1,9 +1,10 @@
 <template>
   <div class="app-wrapper" :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
-    <Sidebar class="sidebar-container" :style="{backgroundColor: variables.menuBg}"></Sidebar>
+    <Sidebar id="guide-sidebar" class="sidebar-container" :style="{backgroundColor: $store.getters.cssVar.menuBg}"></Sidebar>
     <div class="main-container">
       <div class="fixed-header">
         <Navbar></Navbar>
+        <TagsView id="guide-tags"></TagsView>
       </div>
       <Appmain></Appmain>
     </div>
@@ -14,7 +15,7 @@
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar.vue'
 import Appmain from './components/AppMain.vue'
-import variables from '@/styles/variables.module.scss'
+import TagsView from '@/components/TagsView/index.vue'
 </script>
 
 <style lang="scss" scoped>

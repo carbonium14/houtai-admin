@@ -1,8 +1,13 @@
 <template>
   <div class="navbar">
     <Hamburger class="hamburger-container"></Hamburger>
-    <Breadcrumb class="breadcrumb-container"></Breadcrumb>
+    <Breadcrumb id="guide-breadcrumb" class="breadcrumb-container"></Breadcrumb>
     <div class="right-menu">
+      <Guide class="right-menu-item hover-effect"></Guide>
+      <HeaderSearch class="right-menu-item hover-effect"></HeaderSearch>
+      <ScreenFull class="right-menu-item hover-effect"></ScreenFull>
+      <ThemeSelect class="right-menu-item hover-effect"></ThemeSelect>
+      <LangSelect class="right-menu-item hover-effect"></LangSelect>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"></el-avatar>
@@ -11,12 +16,12 @@
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item>主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
             </router-link>
             <router-link to="/">
-              <el-dropdown-item>课程主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </router-link>
-            <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
+            <el-dropdown-item divided @click="logout">{{ $t('msg.navBar.logout') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -28,6 +33,11 @@
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index.vue'
 import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import LangSelect from '@/components/LangSelect/index.vue'
+import ThemeSelect from '@/components/ThemeSelect/index.vue'
+import ScreenFull from '@/components/ScreenFull/index.vue'
+import HeaderSearch from '@/components/HeaderSearch/index.vue'
+import Guide from '@/components/Guide/index.vue'
 const store = useStore()
 const logout = () => {
   store.dispatch('user/logout')
@@ -61,6 +71,16 @@ const logout = () => {
     align-items: center;
     float: right;
     padding-right: 16px;
+    :deep(.right-menu-item) {
+      display: inline-block;
+      padding: 0 18px 0 0;
+      font-size: 24px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+      &.hover-effect {
+        cursor: pointer;
+      }
+    }
 
     :deep(.avatar-container) {
       cursor: pointer;

@@ -2,7 +2,8 @@
   <div class="login-container">
     <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginFormRef">
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <LangSelect class="lang-select"></LangSelect>
       </div>
       <el-form-item prop="username">
         <span class="svg-container">
@@ -21,7 +22,8 @@
           </span>
         </span>
       </el-form-item>
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px;" @click="handleLogin" :loading="loading">登录</el-button>
+      <el-button type="primary" style="width: 100%; margin-bottom: 30px;" @click="handleLogin" :loading="loading">{{ $t('msg.login.loginBtn') }}</el-button>
+      <div class="tips" v-html="$t('msg.login.desc')"></div>
     </el-form>
   </div>
 </template>
@@ -30,16 +32,19 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { validatePassword } from './rules.js'
+import LangSelect from '@/components/LangSelect/index.vue'
+import { useI18n } from 'vue-i18n'
 const loginForm = ref({
   username: 'super-admin',
   password: '123456'
 })
+const i18n = useI18n()
 const loginRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: '用户名为必填项'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
   password: [
@@ -123,6 +128,11 @@ $cursor: #fff;
         caret-color: $cursor;
       }
     }
+    .tips {
+      font-size: 16px;
+      color: #fff;
+      line-height: 20px;
+    }
   }
 
   .svg-container {
@@ -141,6 +151,16 @@ $cursor: #fff;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
+    }
+    :deep(.lang-select) {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      background-color: #fff;
+      font-size: 22px;
+      padding: 4px;
+      border-radius: 4px;
+      cursor: pointer;
     }
   }
 

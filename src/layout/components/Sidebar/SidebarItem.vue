@@ -1,10 +1,10 @@
 <template>
-  <el-submenu v-if="route.children.length > 0" :index="route.path">
+  <el-sub-menu v-if="route.children.length > 0" :index="route.path">
     <template #title>
       <MenuItem :title="route.meta.title" :icon="route.meta.icon"></MenuItem>
     </template>
     <SidebarItem v-for="item in route.children" :key="item.path" :route="item"></SidebarItem>
-  </el-submenu>
+  </el-sub-menu>
   <el-menu-item v-else :index="route.path">
     <MenuItem :title="route.meta.title" :icon="route.meta.icon"></MenuItem>
   </el-menu-item>
