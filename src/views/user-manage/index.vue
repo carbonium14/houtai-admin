@@ -2,7 +2,7 @@
   <div class="user-manage-container">
     <el-card class="header">
       <div>
-        <el-button type="primary" @click="onImportExcelClick">{{ $t('msg.excel.importExcel') }}</el-button>
+        <el-button type="primary" @click="onImportExcelClick" v-permission="['importUser']">{{ $t('msg.excel.importExcel') }}</el-button>
         <el-button type="success" @click="onToExcelClick">{{ $t('msg.excel.exportExcel') }}</el-button>
       </div>
     </el-card>
@@ -36,8 +36,12 @@
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="260">
           <template v-slot="{ row }">
             <el-button type="primary" size="mini" @click="() => onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
-            <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
-            <el-button type="danger" size="mini" @click="() => onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
+            <el-button type="info" size="mini" @click="() => onShowRoleClick(row)" v-permission="['distributeRole']">
+              {{ $t('msg.excel.showRole') }}
+            </el-button>
+            <el-button type="danger" size="mini" @click="() => onRemoveClick(row)" v-permission="['removeUser']">
+              {{ $t('msg.excel.remove') }}
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -47,17 +51,19 @@
       </el-pagination>
     </el-card>
     <Export2Excel v-model="exportToExcelValue"></Export2Excel>
+    <Roles v-model="roleDialogVisible" :user-id="selectUserId" @updateRole="getListData"></Roles>
   </div>
 </template>
 
 <script setup>
-import { ref, onActivated } from 'vue'
+import { ref, onActivated, watch } from 'vue'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n'
 import Export2Excel from './components/Export2Excel.vue'
+import Roles from './components/Roles.vue'
 const tableData = ref([])
 const total = ref(0)
 const page = ref(1)
@@ -106,6 +112,17 @@ const onToExcelClick = () => {
 const onShowClick = (id) => {
   router.push(`/user/info/${id}`)
 }
+const roleDialogVisible = ref(false)
+const selectUserId = ref('')
+const onShowRoleClick = (row) => {
+  roleDialogVisible.value = true
+  selectUserId.value = row._id
+}
+watch(roleDialogVisible, (val) => {
+  if (!val) {
+    selectUserId.value = ''
+  }
+})
 </script>
 
 <style lang="scss" scoped>

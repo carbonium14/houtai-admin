@@ -2,7 +2,7 @@ import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
-import router from '@/router'
+import router, { resetRoute } from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 export default {
   namespaced: true,
@@ -42,6 +42,7 @@ export default {
       return res
     },
     logout(context) {
+      resetRoute()
       context.commit('setToken', '')
       context.commit('setUserInfo', {})
       removeAllItem()
