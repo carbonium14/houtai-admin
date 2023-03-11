@@ -22,3 +22,17 @@ export const articleDetail = (articleId) => {
     url: `/article/${articleId}`
   })
 }
+export const createArticle = (data) => {
+  return request({
+    url: '/article/create',
+    method: 'POST',
+    data
+  })
+}
+export const editorArticle = (data) => {
+  return request({
+    url: '/article/edit',
+    method: 'POST',
+    data
+  })
+}
