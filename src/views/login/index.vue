@@ -117,6 +117,16 @@ $cursor: #fff;
       height: 47px;
       width: 85%;
 
+      .el-input__inner {
+        box-shadow: none !important;
+        --el-select-input-focus-border-color: none !important;
+      }
+      .el-input__wrapper {
+        background: none !important;
+        box-shadow: none !important;
+        --el-select-input-focus-border-color: none !important;
+      }
+
       input {
         background: transparent;
         border: 0px;

@@ -15,15 +15,17 @@
             {{ $filters.relativeTime(row.publicDate) }}
           </template>
           <template v-else-if="item.prop === 'action'" #default="{ row }">
-            <el-button type="primary" size="mini" @click="() => onShowClick(row)">{{ $t('msg.article.show') }}</el-button>
-            <el-button type="danger" size="mini" @click="() => removeClick(row)">{{ $t('msg.article.remove') }}</el-button>
+            <el-button type="primary" size="small" @click="() => onShowClick(row)">{{ $t('msg.article.show') }}</el-button>
+            <el-button type="danger" size="small" @click="() => removeClick(row)">{{ $t('msg.article.remove') }}</el-button>
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
-        :current-page="page" :page-sizes="[5, 10, 20, 50, 100]" :page-size="size"
-        layout="total, sizes, prev, pager, next, jumper" :total="total">
-      </el-pagination>
+      <div class="footer">
+        <el-pagination class="pagination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-page="page" :page-sizes="[5, 10, 20, 50, 100]" :page-size="size"
+          layout="total, sizes, prev, pager, next, jumper" :total="total">
+        </el-pagination>
+      </div>
     </el-card>
   </div>
 </template>
@@ -101,9 +103,14 @@ const handleCurrentChange = (pageSize) => {
     cursor: pointer;
   }
 
-  .pagination {
-    margin-top: 20px;
-    text-align: center;
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .pagination {
+      margin-top: 20px;
+      text-align: center;
+    }
   }
   :deep(.sortable-ghost) {
     opacity: 0.6;

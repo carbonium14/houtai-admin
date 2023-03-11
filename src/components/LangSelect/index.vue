@@ -1,7 +1,7 @@
 <template>
   <el-dropdown class="international" trigger="click" @command="handleSetLanguage">
     <div>
-      <el-tooltip content="国际化" :effect="effect">
+      <el-tooltip :content="$t('msg.navBar.lang')" :effect="effect">
         <SvgIcon id="guide-lang" icon="language"></SvgIcon>
       </el-tooltip>
     </div>

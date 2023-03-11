@@ -11,7 +11,6 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"></el-avatar>
-          <i class="el-icon-s-tools"></i>
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
@@ -21,7 +20,7 @@
             <router-link to="/">
               <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </router-link>
-            <el-dropdown-item divided @click="logout">{{ $t('msg.navBar.logout') }}</el-dropdown-item>
+            <el-dropdown-item @click="logout">{{ $t('msg.navBar.logout') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

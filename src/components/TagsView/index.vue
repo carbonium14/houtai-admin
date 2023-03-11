@@ -5,7 +5,9 @@
       :style="{backgroundColor: isActive(tag) ? $store.getters.cssVar.menuBg: '',
       borderColor: isActive(tag) ? $store.getters.cssVar.menuBg: ''}" @contextmenu.prevent="($event) => openMenu($event, index)">
       {{ tag.title }}
-      <i v-show="!isActive(tag)" class="el-icon-close" @click.prevent.stop="() => onCloseClick(index)"></i>
+      <i v-show="!isActive(tag)" @click.prevent.stop="() => onCloseClick(index)">
+        <Close class="el-icon-close"></Close>
+      </i>
     </router-link>
     <ContextMenu v-show="visible" :style="menuStyle" :index="selectIndex"></ContextMenu>
   </div>
@@ -92,6 +94,9 @@ watch(visible, (val) => {
         }
       }
       .el-icon-close {
+        position: relative;
+        top: 6px;
+        right: 0;
         width: 16px;
         height: 16px;
         line-height: 10px;

@@ -11,6 +11,7 @@ module.exports = defineConfig({
       .use('svg-sprite-loader').loader('svg-sprite-loader').options({
         symbolId: 'icon-[name]'
       }).end()
+    config.module.rule('element-plus-2').test(/\.mjs$/).type('javascript/auto').include.add(/node_modules/).end()
   },
   devServer: {
     proxy: {

@@ -6,7 +6,7 @@
         <el-table-column prop="title" :label="$t('msg.role.name')"></el-table-column>
         <el-table-column prop="describe" :label="$t('msg.role.desc')"></el-table-column>
         <el-table-column :label="$t('msg.role.action')" width="200" #default="{ row }">
-          <el-button type="primary" size="mini" @click="() => onDistributePermission(row)" v-permission="['distributePermission']">
+          <el-button type="primary" size="small" @click="() => onDistributePermission(row)" v-permission="['distributePermission']">
             {{ $t('msg.role.assignPermissions') }}
           </el-button>
         </el-table-column>

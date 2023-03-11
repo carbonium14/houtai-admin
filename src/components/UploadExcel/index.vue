@@ -5,7 +5,7 @@
     </div>
     <input ref="excelUploadInput" type="file" class="excel-upload-input" accept=".xlsx, .xls" @change="handleChange"/>
     <div class="drop" @drop.stop.prevent="handleDrop" @dragover.stop.prevent="handleDragover" @dragenter.stop.prevent="handleDragover">
-      <i class="el-icon-upload"></i>
+      <UploadFilled></UploadFilled>
       <span>{{ $t('msg.uploadExcel.drop') }}</span>
     </div>
   </div>

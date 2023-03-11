@@ -19,12 +19,12 @@
         <el-table-column :label="$t('msg.excel.role')">
           <template v-slot="{ row }">
             <div v-if="row.role && row.role.length > 0">
-              <el-tag v-for="item in row.role" :key="item.id" size="mini">
+              <el-tag v-for="item in row.role" :key="item.id" size="small">
                 {{ item.title }}
               </el-tag>
             </div>
             <div v-else>
-              <el-tag size="mini">{{ $t('msg.excel.defaultRole') }}</el-tag>
+              <el-tag size="small">{{ $t('msg.excel.defaultRole') }}</el-tag>
             </div>
           </template>
         </el-table-column>
@@ -35,20 +35,22 @@
         </el-table-column>
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="260">
           <template v-slot="{ row }">
-            <el-button type="primary" size="mini" @click="() => onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
-            <el-button type="info" size="mini" @click="() => onShowRoleClick(row)" v-permission="['distributeRole']">
+            <el-button type="primary" size="small" @click="() => onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
+            <el-button type="info" size="small" @click="() => onShowRoleClick(row)" v-permission="['distributeRole']">
               {{ $t('msg.excel.showRole') }}
             </el-button>
-            <el-button type="danger" size="mini" @click="() => onRemoveClick(row)" v-permission="['removeUser']">
+            <el-button type="danger" size="small" @click="() => onRemoveClick(row)" v-permission="['removeUser']">
               {{ $t('msg.excel.remove') }}
             </el-button>
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination class="pagination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
-      :current-change="page" :page-szie="size" :page-sizes="[2, 5, 10, 20]" layout="total, sizes, prev, pager, next, jumper"
-      :total="total">
-      </el-pagination>
+      <div class="footer">
+        <el-pagination class="pagination" @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-change="page" :page-szie="size" :page-sizes="[2, 5, 10, 20]" layout="total, sizes, prev, pager, next, jumper"
+          :total="total">
+        </el-pagination>
+      </div>
     </el-card>
     <Export2Excel v-model="exportToExcelValue"></Export2Excel>
     <Roles v-model="roleDialogVisible" :user-id="selectUserId" @updateRole="getListData"></Roles>
@@ -141,9 +143,14 @@ watch(roleDialogVisible, (val) => {
     margin-right: 6px;
   }
 
-  .pagination {
-    margin-top: 20px;
-    text-align: center;
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .pagination {
+      margin-top: 20px;
+      text-align: center;
+    }
   }
 }
 </style>
