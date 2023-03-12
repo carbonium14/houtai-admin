@@ -26,7 +26,6 @@ onMounted(() => {
       background: [{
         field: 'balance',
         mapping(fieldValue) {
-          console.log(fieldValue)
           return {
             fill: fieldValue > 0 ? '#f3fff3' : '#ffe7e7'
           }

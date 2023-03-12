@@ -77,9 +77,8 @@ const handleLogin = () => {
       password: loginForm.value.password
     }).then(() => {
       loading.value = true
-    }).catch((error) => {
+    }).catch(() => {
       loading.value = true
-      console.log(error)
     })
   })
 }
