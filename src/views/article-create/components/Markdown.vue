@@ -10,7 +10,6 @@
 <script setup>
 import { onMounted, defineProps, defineEmits, watch } from 'vue'
 import MKEditor from '@toast-ui/editor'
-import '@toast-ui/editor/dist/toastui-editor.css'
 import '@toast-ui/editor/dist/i18n/zh-cn'
 import { useStore } from 'vuex'
 import { watchSwitchLang } from '@/utils/i18n'

@@ -12,7 +12,6 @@ import 'echarts-wordcloud'
 import { useI18n } from 'vue-i18n'
 import { watchSwitchLang } from '@/utils/i18n'
 import { randomRGB } from '@/utils/color'
-import '@/utils/echarts-wordcloud.min.js'
 import wordCloud from '@/assets/wordcloud.png'
 const i18n = useI18n()
 const wordCloudData = ref([])
