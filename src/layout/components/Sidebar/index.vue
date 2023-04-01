@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="logo-container">
-      <el-avatar :size="logoheight" shape="square" src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png"></el-avatar>
-      <h1 class="logo-title" v-if="$store.getters.sidebarOpened">后台管理</h1>
+      <el-avatar :size="logoheight" shape="square" :src="logo"></el-avatar>
+      <h1 class="logo-title" v-if="$store.getters.sidebarOpened">{{ $t('msg.route.title') }}</h1>
     </div>
     <el-scrollbar>
       <SidebarMenu></SidebarMenu>
@@ -12,7 +12,8 @@
 
 <script setup>
 import SidebarMenu from './SidebarMenu.vue'
-const logoheight = 44
+import logo from '@/assets/logo.png'
+const logoheight = 35
 </script>
 
 <style lang="scss" scoped>

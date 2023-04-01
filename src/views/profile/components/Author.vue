@@ -1,7 +1,7 @@
 <template>
   <div class="author-container">
     <div class="header">
-      <PanThumb image="https://img4.sycdn.imooc.com/61110c2b0001152907400741-140-140.jpg" height="60px" width="60px">
+      <PanThumb :image="logo" height="60px" width="60px">
         {{ $t('msg.profile.name') }}
       </PanThumb>
       <div class="header-desc">
@@ -15,6 +15,7 @@
 
 <script setup>
 import PanThumb from '@/components/PanThumb/index.vue'
+import logo from '@/assets/logo.png'
 </script>
 
 <style lang="scss" scoped>

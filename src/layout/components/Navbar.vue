@@ -17,9 +17,6 @@
             <router-link to="/">
               <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
             </router-link>
-            <router-link to="/">
-              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
-            </router-link>
             <el-dropdown-item @click="logout">{{ $t('msg.navBar.logout') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>

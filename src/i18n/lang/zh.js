@@ -19,6 +19,7 @@ export default {
     `
   },
   route: {
+    title: '后台管理',
     profile: '个人中心',
     chart: '数据可视化',
     user: '用户',
@@ -91,10 +92,10 @@ export default {
     feature: '功能',
     chapter: '章节',
     author: '作者',
-    name: 'Sunday',
+    name: '姓名',
     job: '一个前端开发程序猿',
     Introduction:
-      '高级技术专家，曾就职于国内一线互联网公司，统筹过的多个大型项目用户数已过千万级。致力于研究大前端技术，多次受邀参加国内前端技术分享会，如：2018 年 Google 中国技术分享会。'
+      '一个前端开发者，开发一个后台管理项目'
   },
   userInfo: {
     print: '打印',
@@ -193,7 +194,7 @@ export default {
     dayIncome: '日收益曲线',
     unit: '万元',
     pieChartTitle: '大区营销图示',
-    cloudChartTitle: '慕课 logo 文档云',
+    cloudChartTitle: 'logo 文档云',
     bmapChartTitle: '营收业绩图示（地图不支持国际化）',
     tadayReceivable: '今日回款',
     tadayBalance: '今日结余',

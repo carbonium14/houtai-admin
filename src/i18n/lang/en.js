@@ -19,6 +19,7 @@ export default {
     `
   },
   route: {
+    title: 'Backstage managed',
     profile: 'Profile',
     chart: 'chart',
     user: 'user',
@@ -92,10 +93,10 @@ export default {
     feature: 'Feature',
     chapter: 'Chapter',
     author: 'Author',
-    name: 'Sunday',
+    name: 'Name',
     job: 'A front-end development program',
     Introduction:
-      'A senior technical expert, once worked in a domestic first-line Internet company, and has coordinated multiple large-scale projects with more than tens of millions of users. Committed to researching big front-end technology, he has been invited to participate in domestic front-end technology sharing sessions many times, such as: Google China Technology Sharing Session in 2018.'
+      'A front-end developer who develops a back-end management project.'
   },
   userInfo: {
     print: 'Print',
@@ -194,7 +195,7 @@ export default {
     dayIncome: 'Daily return curve',
     unit: '10k yuan',
     pieChartTitle: 'Regional marketing diagram',
-    cloudChartTitle: 'imooc Logo document Cloud',
+    cloudChartTitle: 'Logo document Cloud',
     bmapChartTitle:
       'Revenue performance diagram（Map does not support internationalization）',
     tadayReceivable: 'Receivable today',
